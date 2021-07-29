@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 raw_data=pd.read_excel("nitrogen.xlsx", engine = 'openpyxl') 
 data = pd.DataFrame(raw_data)
 print(data)
-plt.plot(data['time'].to_numpy()[2:],data['inverted'].to_numpy()[2:])
+plt.plot(data['time'].to_numpy()[2:],data['ch1'].to_numpy()[2:])
 plt.show()
 
 
