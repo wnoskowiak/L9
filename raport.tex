@@ -118,8 +118,8 @@ Zakładając że w rezonator znajduje się w ośrodku absorbującym na spadek na
 
 \begin{equation}
     \label{BL}
-    \frac{I_l}{I_0}= e^{-l*N*\sigma}\\
-    I_l = I_0 e^{-l*N*\sigma}
+    \frac{I_l}{I_0}= e^{-lN\sigma}\\
+    I_l = I_0 e^{-lN\sigma}
 \end{equation}
 
 Gdzie:
@@ -133,7 +133,7 @@ Uwzględniając wkład opisany wzorem \ref{BL} funkcja natężenia światła od 
 
 \begin{gather}
     \label{funccorr}
-    I(t) = I_0 e^{-t \left(*\frac{1}{\tau_0} +\sigma N \right)} = I_0 e^{\frac{-t}{\tau}}
+    I(t) = I_0 e^{-t \left(\frac{1}{\tau_0} +\sigma N \right)} = I_0 e^{\frac{-t}{\tau}}
 \end{gather}
 
 
@@ -163,13 +163,13 @@ Układ wykorzystany przy dokonywaniu pomiarów zbudowany był w oparciu o laser 
 Uzyskane w wyniku rozszczepienia na płytce dyfrakcyjnej wiązki światła trafiały na fotodiodę i do rezonatora optycznego mniej więcej w tym samym momencie. Rezonator był skalibrowany w taki sposób, że pojawienie się w nim światła lasera powodowało wzbudzenie w nim modu drgań. Fotopowielacz przyłączony do rezonatora pozwalał na zmierzenie natężenia światła wychodzącego z rezonatora w danym momencie. Sygnał pojawiający się na kanale pierwszym oscyloskopu, czyli ten pochodzący z fotodiody, pozwalał na określenie czasu dotarcia impulsu. Sygnał z kanału drugiego oscyloskopu, czyli tego pochodzącego z fotopowielacza, pozwalał na określenie szybkości spadku natężenia światła we wnęce optycznej. Zmierzenie tej wartości pozwalało na skuteczne określenie stężenia NO2 w danej próbce w przy wykorzystaniu metody SSWO opisnanej w \ref{sswow}.
 
 \section{Opis przeprowadzonych pomiarów}
-W doświadczeniu wykorzystano próbki powietrza pobrane w laboratorium w którym przeprowadzono szereg wyładowań elektrycznych mogących wywołać zmianę stężenia $\text{NO}_{\text{2}}$ w otaczającej je atmosferze. W laboratorium pobrano próbkę powietrza w pomieszczeniu przed i po przeprowadzeniu procesów, mieszaniny gazów powstałą w wyniku krótkiego i długiego wyładowania iskrowego oraz  trzech wyładowań koronowych o różnej sile. Pobrano również próbkę azotu pierwiastkowego wyparowanego z jego ciekłej fazy. 
+W doświadczeniu wykorzystano próbki powietrza pobrane w laboratorium w którym przeprowadzono szereg wyładowań elektrycznych mogących wywołać zmianę stężenia $\text{NO}_{\text{2}}$ w otaczającej je atmosferze. W laboratorium pobrano próbkę powietrza z pomieszczenia przed i po przeprowadzeniu procesów, mieszaniny gazów powstałą w wyniku krótkiego i długiego wyładowania iskrowego oraz  trzech wyładowań koronowych o różnej sile. Pobrano również próbkę azotu pierwiastkowego wyparowanego z jego ciekłej fazy. 
 
 Pomiary zaczynano od wprowadzenia badanej próbki gazu do rezonatora optycznego będącego częścią układu badawczego. Następnie włączano laser i oscyloskop po czym rozpoczynano zapis danych. Po 25 pulsach lasera przerywano działanie układu i zapisywano uzyskane wyniki. Proces przeprowadzano dla każdej badanej próbki.
 
 \section{Format otrzymanych przeze mnie danych} 
 
-Od prowadzącego ćwiczenia otrzymałem szereg plików o rozszerzeniu xlsx zawierających dane odczytane z oscyloskopu uzyskane dla różnych próbek jak i plik tekstowy zawierający wartości parametru sigma dla różnych częstotliwości światła dla cząsteczki $\text{NO}_{\text{2}}$. Tabela określająca dla który plik reprezentuje dane zebrane dla danej próbki znajdowała się w  dokumencie przekazanym przez prowadzącego ćwiczenie \cite{sswo}.
+Od prowadzącego ćwiczenia otrzymałem szereg plików o rozszerzeniu xlsx zawierających dane odczytane z oscyloskopu uzyskane dla różnych próbek jak i plik tekstowy zawierający wartości parametru sigma dla różnych częstotliwości światła dla cząsteczki $\text{NO}_{\text{2}}$. Tabela określająca który plik reprezentuje dane zebrane dla danej próbki znajdowała się w  dokumencie przekazanym przez prowadzącego ćwiczenie \cite{sswo}.
 
 \begin{table}[h]
     \centering
@@ -228,8 +228,8 @@ Dane w plikach xlsx były rozdzielone na sześć kolumn których opisy były nak
     \label{ch1_1}
 \end{wrapfigure}
 
-Zachowanie sygnałów zebranych z pierwszego kanału oscyloskopu była różna dla różnych plików. Dla plików \textit{nitrogen.xlsx}, \textit{spark1.xlsx}, \textit{crone1.xlsx} i \textit{air1.xlsx} w danych zapisanych z pierwszego kanału oscyloskopu dało się zaobserwować bardzo wyraźne i wąskie skoki napięcia. Skoki te występowały w równych odstępach od siebie, i w każdej badanej serii pomiarowej było ich 25. Korespondowały one z wykryciem przez fotodiodę impulsu wygenerowanego przez laser.
-W danych z kanału pierwszego w plikach \textit{spark2.xlsx} \textit{spark3.xlsx}, \textit{crone2.xlsx} oraz \textit{air2.xlsx} dało się zaobserwować dwa napięcia pomiędzy którymi sygnał gwałtownie przeskakiwał. Przeskoki napięcia występowały w równych odstępach od siebie, a długość czasu przez jaki sygnał pozostawał na danym napięciu nie zmieniała się pomiędzy kolejnymi zmianami. W obydwu
+Zachowanie sygnałów zebranych z pierwszego kanału oscyloskopu było różne dla różnych plików. Dla plików \textit{nitrogen.xlsx}, \textit{spark1.xlsx}, \textit{crone1.xlsx} i \textit{air1.xlsx} w danych zapisanych z pierwszego kanału oscyloskopu dało się zaobserwować bardzo wyraźne i wąskie skoki napięcia. Skoki te występowały w równych odstępach od siebie, i w każdej serii pomiarowej było ich 25. Korespondowały one z wykryciem przez fotodiodę impulsu wygenerowanego przez laser.
+W danych z kanału pierwszego w plikach \textit{spark2.xlsx} \textit{spark3.xlsx}, \textit{crone2.xlsx} oraz \textit{air2.xlsx} dało się zaobserwować dwa napięcia pomiędzy którymi sygnał gwałtownie przeskakiwał. Przeskoki napięcia występowały w równych odstępach, a czas przez jaki sygnał pozostawał na danym napięciu nie zmieniała się pomiędzy kolejnymi zmianami. W obydwu
 \newpage 
 \begin{wrapfigure}{l}{4cm}
     \centering
@@ -237,7 +237,8 @@ W danych z kanału pierwszego w plikach \textit{spark2.xlsx} \textit{spark3.xlsx
     \caption{sygnał ch1 z pliku  \textit{air2.xlsx}}
     \label{ch1_2}
 \end{wrapfigure}
-przypadkach dane zebrane z pierwszego kanału oscyloskopu charakteryzował bardzo niski poziom szumu. W celu uzyskania reprezentacji natężenia światła padającego na będący częścią układu badawczego fotopowielacz sygnał z drugiego kanału oscyloskopu odpowiednio uśredniono i pomnożono przez -1 \cite{strona}. Dalej tak spreparowany sygnał będę określał sygnałem przetworzonym. Uzyskane w ten sposób dane charakteryzował znacząco wyższy poziom szumu od tego występującego w sygnale pobranym z kanału pierwszego. \textit{air2.xlsx} Pozostawały one spójne pomiędzy seriami i dało się w nich zaobserwować gwałtowne skoki w natężeniu, po których sygnał eksponencjalnie spadał do wartości sprzed skoku. W  każdej analizowanej serii danych występowało 25 takich pików.  W przypadku danych z plików \textit{nitrogen.xlsx}, \textit{spark1.xlsx}, \textit{crone1.xlsx} i \textit{air1.xlsx} pokrywały się one w czasie z pikami obserwowanymi na kanale pierwszym. W przypadku plików \textit{spark2.xlsx} \textit{spark3.xlsx}, \textit{crone2.xlsx} otrzymane piki te pokrywały się z przeskokiem napięcia kanale pierwszym z niskiego na wysokie.Na podstawie tej zgodności można stwierdzić że wzrost napięcia na kanale pierwszym wiązał się z wykryciem przez podłączoną do niego fotodiodę impulsu lasera. Jest to zachowanie zgodne z przewidywaniami teoretycznymi. W obu przypadkach uzyskane dane wyglądały na prawidłowe, jednak wartość wyjściowa (występujące na kanale zaraz przed pojawieniem się skoku) było nieznacznie mniejsze od 0. Po przesunięciu danych w taki sposób, by wartość wyjściowa wynosiła  0 dane stawały się zgodne z przewidywaniami teoretycznymi.
+przypadkach dane zebrane z pierwszego kanału oscyloskopu charakteryzował bardzo niski poziom szumu. 
+W celu uzyskania reprezentacji natężenia światła padającego na będący częścią układu badawczego fotopowielacz sygnał z drugiego kanału oscyloskopu odpowiednio uśredniono i pomnożono przez -1 \cite{strona}. Dalej tak spreparowany sygnał będę określał sygnałem przetworzonym. Uzyskane w ten sposób dane charakteryzował znacząco wyższy poziom szumu od tego występującego w sygnale pobranym z kanału pierwszego. Pozostawały one spójne pomiędzy seriami i dało się w nich zaobserwować gwałtowne skoki w natężeniu, po których sygnał eksponencjalnie spadał do wartości sprzed skoku. W  każdej analizowanej serii danych występowało 25 takich pików. W przypadku danych z plików \textit{nitrogen.xlsx}, \textit{spark1.xlsx}, \textit{crone1.xlsx} i \textit{air1.xlsx} pokrywały się one w czasie z pikami obserwowanymi na kanale pierwszym. W przypadku plików \textit{spark2.xlsx} \textit{spark3.xlsx}, \textit{crone2.xlsx} otrzymane piki te pokrywały się z przeskokiem napięcia kanale pierwszym z niskiego na wysokie. Na podstawie tej zgodności można stwierdzić że wzrost napięcia na kanale pierwszym wiązał się z wykryciem przez podłączoną do niego fotodiodę impulsu lasera. Jest to zachowanie zgodne z przewidywaniami teoretycznymi. W obu przypadkach uzyskane dane wyglądały na prawidłowe, jednak wartość wyjściowa (występujące na kanale zaraz przed pojawieniem się skoku) było nieznacznie mniejsze od 0. Po przesunięciu danych w taki sposób, by wartość wyjściowa wynosiła  0 dane stawały się zgodne z przewidywaniami teoretycznymi.
 
 \begin{figure}[h]
     \centering
@@ -264,7 +265,7 @@ Taką metodę wyznaczania wartości granicznej dobrałem arbitralnie, ale zweryf
     \label{tresh}
 \end{figure}
  Jeśli powyżej wartości granicznej zawierało się kilka następujących po sobie punktów wybierałem ten o najwyższej wartości, a pozostałe odrzucałem. Do uzyskanych w ten sposób indeksów dopisywałem ostatni index serii po czym zapisywałem rezultaty. 
-Następnie na podstawie uzyskanych wcześniej punktów dzieliłem przetworzony sygnał z kanału drugiego na przedziały. Następnie znajdowałem najwyższą wartość w każdym przedziale i odrzucałem wartości występujące przed nią.  W ten sposób uzyskiwałem fragmenty danych zawierające tylko jeden skok  i eksponencjalny spadek wartości  to wartości wyjściowej. Wartość wyjściową uzyskiwałem poprzez uśrednienie ostatnich 80 pomiarów zawierających się w danym fragmencie.  Następnie dane każdego z nich transformowałem w taki sposób by  czas odpowiadający pierwszemu pomiarowi oraz wartość wyjściowa wynosiły 0. Do tak spreparowanych danych dopasowywałem funkcje zależą od parametrów $a$ i $b$: 
+Na podstawie uzyskanych wcześniej punktów dzieliłem przetworzony sygnał z kanału drugiego na przedziały. Następnie znajdowałem najwyższą wartość w każdym przedziale i odrzucałem wartości występujące przed nią.  W ten sposób uzyskiwałem fragmenty danych zawierające tylko jeden skok  i eksponencjalny spadek wartości  to wartości wyjściowej. Wartość wyjściową uzyskiwałem poprzez uśrednienie ostatnich 80 pomiarów zawierających się w danym fragmencie.  Następnie dane każdego z nich transformowałem w taki sposób by  czas odpowiadający pierwszemu pomiarowi oraz wartość wyjściowa wynosiły 0. Do tak spreparowanych danych dopasowywałem funkcje zależą od parametrów $a$ i $b$: 
 \begin{equation}
     \label{exp}
     f(t) = a e^{\frac{-t}{b}}
@@ -275,13 +276,13 @@ Jako początkową wartość $a$ przyjmowałem maksymalną wartość uzyskaną w 
     b_{init} = \frac{-t[80]}{\ln{\frac{V[80]}{a}}}
 \end{equation}
 
-Gdzie $t[80]$ i $V[80]$ odpowiadają kolejno 80 pomiarowi czasu i 80 pomiarowi przetworzonego sygnału na kanale drugim w badanym przedziale.  Wzór ten został przeze mnie wybrany arbitralnie, ale powtarzalność i mały rozstrzał dopasowani powstałych przy jego wykorzystaniu świadczył że wyznaczał on odpowiednią wartość początkową parametru $b$. Uzyskane w ten sposób parametry początkowe gwarantowały że funkcja od której rozpoczynałem dopasowanie w przynajmniej dwóch punktach zgadzała się z przetworzonymi wartościami kanału drugiego.
+Gdzie $t[80]$ i $V[80]$ odpowiadają kolejno 80 pomiarowi czasu i 80 pomiarowi przetworzonego sygnału na kanale drugim w badanym przedziale.  Wzór ten został przeze mnie wybrany arbitralnie, ale powtarzalność i mały rozstrzał dopasowani powstałych przy jego wykorzystaniu świadczył że wyznaczał on odpowiednią wartość początkową parametru $b$. Uzyskane w ten sposób parametry początkowe gwarantowały, że funkcja od której rozpoczynałem dopasowanie w przynajmniej dwóch punktach zgadzała się z przetworzonymi wartościami kanału drugiego.
 Wartości $b$ uzyskane w wyniku dopasowania zapisywałem. Na końcu zapisywałem ich średnią i odchylenie standardowe. Proces powtórzyłem dla wszystkich dostarczonych plików.
 Wykorzystany przez mnie program dołączyłem jako załącznik do raportu
 
 \section{Interpretacja dopasowanych parametrów oraz dalsza analiza danych}
 
-Po uzyskaniu wyników działania programu uzyskane wyniki przepisywałem do arkusza kalkulacyjnego. Uzyskana w sposób opisany w paragrafie \ref{method} odpowiada parametrowi $\tau$ zdefiniowanego w paragrafie \ref{sswow}. Azot cząsteczkowy wyparowany z ciekłej fazy nie powinien zawierać $\text{NO}_{\text{2}}$, w takim razie wartość $b$ uzyskaną dla tej próbki możemy traktować jako wartość $\tau_0$. W takim razie wartość sigma dla światła częstotliwości  światła generowanej przez laser jesteśmy w stanie określić stężenie $\text{NO}_{\text{2}}$ w badanych próbkach możemy wyznaczyć ze wzoru \ref{stęż}.  Uzyskanie stężenie określa ilość cząsteczek substancji w centymetrze sześciennym powietrza.  
+Po uzyskaniu wyników działania programu uzyskane rezultaty przepisywałem do arkusza kalkulacyjnego. Uzyskane w wyniku dopasowania wartości $b$ odpowiadają parametrom $\tau$ zdefiniowanych w paragrafie \ref{sswow}. Azot cząsteczkowy wyparowany z ciekłej fazy nie powinien zawierać $\text{NO}_{\text{2}}$, w takim razie $b$ uzyskaną dla tej próbki możemy traktować jako wartość $\tau_0$. Wartość sigma dla światła częstotliwości  światła generowanej przez laser jesteśmy w stanie określić stężenie $\text{NO}_{\text{2}}$ w badanych próbkach możemy wyznaczyć ze wzoru \ref{stęż}.  Uzyskanie stężenie określa ilość cząsteczek substancji w centymetrze sześciennym powietrza.  
 Stężenie wyrażone w gramach na centymetr sześcienny $d$ jesteśmy w stanie określić na podstawie wzoru
 \begin{equation}
     \label{dens}
