@@ -1,36 +1,30 @@
-import openpyxl   
 import pandas as pd
 import numpy as np
-from pandas import read_excel
 import matplotlib.pyplot as plt
 import scipy.optimize as scp
 
-def f(x,a,b):
-    return a*np.exp(-x/b)
-    
+def f(x,a,b,c):
+    return ((a*np.exp(-x/b)) -c)
 
-raw_data=pd.read_excel("air2.xlsx", engine = 'openpyxl') 
+number = 7
+test_samples = ['nitrogen','air1','air2','crone1','crone2','crone3','spark1','spark2']
+names = ['odparowany azot', 'powietrze przed wyładowaniami', 'powietrze po wyładowaniach', 'słabe wyładowanie koronowe', 'średnie wyładowanie koronowe', 'silne wyłaodowanie koronowe', 'słabe wyładowanie iskrowe', 'mocne wyładowanie iskrowe']
+raw_data=pd.read_excel(str(test_samples[number]+".xlsx"), engine = 'openpyxl') 
 data = pd.DataFrame(raw_data)
 data = data.drop([0,1]).reset_index(drop=True)
+
 
 time_column = data.columns[2]
 ch1_column = data.columns[3]
 data_column = data.columns[-1]
-
-plt.plot(data[time_column],data[ch1_column])
-plt.plot(data[time_column],data[data_column], color='r')
-plt.show()
+#print(time_column,ch1_column,data_column)
 
 tester = []
 for i in range(len(data[ch1_column])):
     tester.append(data[ch1_column].to_numpy()[i]-data[ch1_column].to_numpy()[i-1])
 
 thershold =  (np.max(tester)-np.average(tester))/3.5
-print(thershold)
-
-plt.plot(data[time_column], tester)
-plt.axhline(thershold, color='r')
-plt.show()
+#print(thershold)
 
 points_candidates = np.argwhere(tester>thershold)
 points_candidates = np.append(points_candidates,[[(len(data[ch1_column])-1)]], axis=0)
@@ -53,56 +47,44 @@ while i<(len(points_candidates)-1):
     i = i + 1
 
 points.append(len(data[ch1_column])-1)
-#print(points)
-#print(points_candidates)
 
+int_indexes = np.arange(points[0],points[1])
+temp_data = data[data_column].to_numpy()
+average = temp_data[int_indexes]
+res = []
 
+for i in range(len(int_indexes)):
+    temp = []
+    for k in range(len(points)):
+        try:
+            temp.append(temp_data[points[k]+i])
+        except:
+            pass
+    res.append(np.average(temp))
 
-plt.plot(data[time_column],data[data_column])
+peak = np.argmax(res)
 
+times_all = data[time_column ].to_numpy()[int_indexes]
+cutoff = int(len(times_all))
 
-for i in range(len(points)):
-    plt.axvline(x= data[time_column][points[i]], color = 'r')
+t_0 = times_all[peak:][0]
+times_fit = np.array(times_all[peak:] - t_0, dtype=np.float32)[:cutoff]
+#times_fit = data[time_column ].to_numpy()[int_indexes][peak:]
+val_fit = res[peak:][:cutoff]
 
-"""
+a_init = val_fit[0]
+b_init =  4.61052126e-07
+c_init = -2.65097587e-04
 
-for i in range(len(points_candidates)):
-    plt.axvline(x= data[time_column][points_candidates[i][0]], color = 'g')
+params, pcov = scp.curve_fit(f, times_fit, val_fit, [a_init,b_init, c_init], method = 'lm' )
+err = np.sqrt(np.diag(pcov))
+print(params, err)
 
-"""
-
+plt.figure(figsize=(8.5,5))
+plt.plot(times_all[:-40], res[:-40])
+plt.plot((times_fit+t_0)[:-40], f(times_fit, *params)[:-40], color = 'r')
+plt.xlabel("czas [s]")
+plt.ylabel("napięcie [V]")
+plt.title(names[number])
+#plt.rcParams["figure.figsize"] = (5,10)
 plt.show()
-
-thaus = []
-
-#for i in [10]:
-
-for i in range(len(points)-1):
-
-    indexes = np.arange(points[i],points[i+1])[:-20]
-    val_between_imp = data[data_column].to_numpy()[indexes]
-    peak = np.argmax(val_between_imp)
-
-    times_fit = np.array(data[time_column ].to_numpy()[indexes][peak:] - data[time_column ].to_numpy()[indexes][peak:][0],dtype=np.float32)
-    val_fit = np.array((data[data_column].to_numpy()[indexes][peak:]-np.average(data[data_column].to_numpy()[indexes][peak:][-20:])),dtype=np.float32)
-    a_init = val_fit[0]
-    b_init = 0.00000014
-    #b_init = -times_fit[80]/np.log(val_fit[80]/a_init)
-
-    params, pcov = scp.curve_fit(f, times_fit, val_fit, [a_init,b_init])
-    err = np.sqrt(np.diag(pcov))
-
-    thaus.append(params[1])
-    #print(params[1])
-    
-    #"""
-    """
-    %matplotlib widget
-    plt.plot(times_fit,val_fit)
-    plt.plot(times_fit, f(times_fit, params[0], params[1]), color = 'r')
-    """
-    #"""
-    
-print(thaus)
-print(np.average(thaus),np.std(thaus))
-

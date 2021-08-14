@@ -264,7 +264,7 @@ Taką metodę wyznaczania wartości granicznej dobrałem arbitralnie, ale zweryf
     \caption{przykładowy przetworzony sygnał ch1 z zaznaczoną wartością graniczną}
     \label{tresh}
 \end{figure}
- Jeśli powyżej wartości granicznej zawierało się kilka następujących po sobie punktów wybierałem ten o najwyższej wartości, a pozostałe odrzucałem. Do uzyskanych w ten sposób indeksów dopisywałem ostatni index serii po czym zapisywałem rezultaty. 
+Jeśli powyżej wartości granicznej zawierało się kilka następujących po sobie punktów wybierałem ten o najwyższej wartości, a pozostałe odrzucałem. Do uzyskanych w ten sposób indeksów dopisywałem ostatni index serii po czym zapisywałem rezultaty. 
 Na podstawie uzyskanych wcześniej punktów dzieliłem przetworzony sygnał z kanału drugiego na przedziały. Następnie znajdowałem najwyższą wartość w każdym przedziale i odrzucałem wartości występujące przed nią.  W ten sposób uzyskiwałem fragmenty danych zawierające tylko jeden skok  i eksponencjalny spadek wartości  to wartości wyjściowej. Wartość wyjściową uzyskiwałem poprzez uśrednienie ostatnich 80 pomiarów zawierających się w danym fragmencie.  Następnie dane każdego z nich transformowałem w taki sposób by  czas odpowiadający pierwszemu pomiarowi oraz wartość wyjściowa wynosiły 0. Do tak spreparowanych danych dopasowywałem funkcje zależą od parametrów $a$ i $b$: 
 \begin{equation}
     \label{exp}
@@ -331,30 +331,48 @@ Wartości $\tau$ wraz z związanymi z nimi odchyleniami standardowymi przepisał
     \caption{uzyskane wyniki}
     \label{tab:my-table}
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|l|}
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
     \hline
-    \cellcolor[HTML]{EFEFEF}{\color[HTML]{333333} próbka} &
-      \multicolumn{1}{c|}{$\tau$ $[s]$} &
-      \multicolumn{1}{c|}{$\Delta \tau$ $[s]$} &
-      \multicolumn{1}{c|}{$\alpha$ $\left[\frac{1}{cm}\right]$} &
-      \multicolumn{1}{c|}{$\Delta \alpha$ $\left[\frac{1}{cm}\right]$} &
-      \multicolumn{1}{c|}{$N/cm^3$ $\left[\frac{1}{cm^3}\right]$} &
-      \multicolumn{1}{c|}{$\Delta N/cm^3$ $\left[\frac{1}{cm^3}\right]$} &
-      \multicolumn{1}{c|}{$\frac{g}{cm^3}$} &
-      \multicolumn{1}{c|}{$\Delta \frac{g}{m^3}$} &
-      \multicolumn{1}{c|}{$ppb$} &
-      \multicolumn{1}{c|}{$\Delta ppb$} \\ \hline
-    nitrogen & $2.36 *10^{-6}$ & $1.38*10^{-8}$ &          &          &          &          &          &          &       &     \\ \hline
-    air1            & $2.32*10^{-6}$                         & $1.51*10^{-8}$ & $2.09*10^{-7}$ & $1.76*10^{-7}$ & $3.29*10^{11}$ & $2.77*10^{11}$ & $2.51*10^{-11}$ & $2.12*10^{-11}$ & $21$    & $17$  \\ \hline
-    air2            & $2.17*10^{-6}$                         & $4.34*10^{-8}$ & $1.21*10^{-6}$ & $3.90*10^{-7}$ & $1.91*10^{12}$ & $6.13*10^{11}$ & $1.46*10^{-10}$ & $4.68*10^{-11}$ & $119$   & $38$  \\ \hline
-    crone1          & $1.24*10^{-6}$                         & $1.62*10^{-8}$ & $1.28*10^{-5}$ & $4.34*10^{-7}$ & $2.01*10^{13}$ & $6.83*10^{11}$ & $1.54*10^{-9}$ & $5.22*10^{-11}$ & $1254$  & $43$  \\ \hline
-    crone2          & $5.17*10^{-7}$                         & $5.28*10^{-9}$ & $5.04*10^{-5}$ & $7.42*10^{-7}$ & $7.93*10^{13}$ & $1.17*10^{12}$ & $6.06*10^{-9}$ & $8.91*10^{-11}$ & $4944$  & $73$  \\ \hline
-    crone3          & $2.00*10^{-6}$                         & $1.04*10^{-8}$ & $2.50*10^{-6}$ & $1.69*10^{-7}$ & $3.93*10^{12}$ & $2.66*10^{11}$ & $3.00*10^{-10}$ & $2.03*10^{-11}$ & $245$   & $17$  \\ \hline
-    spark1          & $2.27*10^{-7}$                         & $1.17*10^{-8}$ & $1.33*10^{-4}$ & $7.67*10^{-6}$ & $2.09*10^{14}$ & $1.21*10^{13}$ & $1.60*10^{-8}$ & $9.20*10^{-10}$ & $13034$ & $751$ \\ \hline
-    spark2          & $1.46*10^{-7}$                         & $5.38*10^{-9}$ & $2.15*10^{-4}$ & $8.56*10^{-6}$ & $3.38*10^{14}$ & $1.35*10^{13}$ & $2.58*10^{-8}$ & $1.03*10^{-9}$ & $21081$ & $839$ \\ \hline
+    próbka &
+      $\tau$ $[s]$ &
+      $\Delta \tau$ $[s]$ &
+      $\alpha$ $\left[\frac{1}{cm}\right]$ &
+      $\Delta \alpha$ $\left[\frac{1}{cm}\right]$ &
+      $\frac{N}{cm^3}$   $\left[\frac{1}{cm^3}\right]$ &
+      $\frac{\Delta N}{cm^3}$   $\left[\frac{1}{cm^3}\right]$ &
+      \textbf{$\frac{g}{cm^3}$} &
+      \textbf{$\Delta \frac{g}{m^3}$} &
+      \textbf{$ppb$} &
+      \textbf{$\Delta ppb$} \\ \hline
+    nitrogen & 2.40E-06 & 3.32E-09 &          &          &          &          &          &          &       &     \\ \hline
+    air1     & 2.34E-06 & 3.05E-09 & 3.09E-07 & 3.78E-08 & 4.86E+11 & 5.95E+10 & 3.71E-11 & 4.54E-12 & 30    & 4   \\ \hline
+    air2     & 2.35E-06 & 2.94E-09 & 3.05E-07 & 3.71E-08 & 4.80E+11 & 5.83E+10 & 3.66E-11 & 4.46E-12 & 30    & 4   \\ \hline
+    crone1   & 1.46E-06 & 4.09E-09 & 8.90E-06 & 8.31E-08 & 1.40E+13 & 1.31E+11 & 1.07E-09 & 9.98E-12 & 873   & 8   \\ \hline
+    crone2   & 5.28E-07 & 1.58E-09 & 4.93E-05 & 2.09E-07 & 7.74E+13 & 3.28E+11 & 5.91E-09 & 2.51E-11 & 4828  & 20  \\ \hline
+    crone3   & 2.01E-06 & 2.63E-09 & 2.67E-06 & 4.10E-08 & 4.20E+12 & 6.44E+10 & 3.21E-10 & 4.92E-12 & 262   & 4   \\ \hline
+    spark1   & 4.58E-07 & 3.10E-09 & 5.90E-05 & 5.14E-07 & 9.27E+13 & 8.07E+11 & 7.08E-09 & 6.17E-11 & 5782  & 50  \\ \hline
+    spark2   & 2.01E-07 & 2.68E-09 & 1.52E-04 & 2.23E-06 & 2.39E+14 & 3.51E+12 & 1.82E-08 & 2.68E-10 & 14890 & 219 \\ \hline
     \end{tabular}%
     }
 \end{table}
+
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{nitrogen.pdf}
+    \includegraphics[width=6cm]{air1.pdf}
+    \includegraphics[width=6cm]{air2.pdf}
+    \includegraphics[width=6cm]{crone1.pdf}
+    \includegraphics[width=6cm]{crone2.pdf}
+    \includegraphics[width=6cm]{crone3.pdf}
+    \includegraphics[width=6cm]{spark1.pdf}
+    \includegraphics[width=6cm]{spark2.pdf}
+    \caption{Uzyskane uśrednione sygnały wraz z dopasowanymi krzywymi}
+    \label{ch2_1}
+\end{figure}
+
+\newpage
 
 \section{Dyskusja uzyskanych wyników}
 Zarówno otrzymane wartości $\tau$ jak i wyliczone na ich podstawie stężenie w większości przypadków okazały się być zgodne z przewidywaniami teoretycznymi. W powietrzu laboratorium stężenie dwutlenku azotu wynosiło kilkadziesiąt ppb. W badanych mieszaninach gazów powstałych w wyładowaniach stężenie to wynosiło kilka lub kilkanaście tysięcy ppb.  Wartość $\tau_0$ wyliczona z danych uzyskanych dla próbki odparowanego azotu okazała się być najwyższa. Jest to zachowanie zgodne z przewidywaniami, ponieważ próbka ta powinna nie zawierać w sobie cząsteczek $\text{NO}_{\text{2}}$. W próbce powietrza pobranego z laboratorium przed rozpoczęciem pomiarów stężenie $\text{NO}_{\text{2}}$ okazało się być najmniejsze. Badane stężenie okazało się być znacząco wyższe w próbkach pobranych z otoczenia procesów przeprowadzonych w laboratorium. Również  próbce powietrza pobranego z laboratorium po przeprowadzeniu pomiarów badane stężenie $\text{NO}_{\text{2}}$ było wyższe od tego zaobserwowanego w próbce zebranej przed rozpoczęciem pomiarów. Są to rezultaty zgodne z przewidywaniami, ponieważ wspomniane procesy powodują powstanie $\text{NO}_{\text{2}}$ w powietrzu. Mieszaniny gazów powstałe w procesach mieszały się z atmosferą je otaczającą, skutecznie zwiększając stężenie dwutlenku azotu w powietrzu w laboratorium.
